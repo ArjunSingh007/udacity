@@ -1,4 +1,4 @@
-import express from 'express';
+import express, {Request, Response} from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
 import validUrl from 'valid-url';
@@ -31,7 +31,7 @@ import validUrl from 'valid-url';
   /**************************************************************************** */
 
   //! END @TODO1
-  app.get("/filteredimage", async (req, res) => {
+  app.get("/filteredimage", async (req: Request, res: Response) => {
     const { image_url } = req.query;
     console.log(image_url)
     if(!image_url || !validUrl.isUri(image_url)){
